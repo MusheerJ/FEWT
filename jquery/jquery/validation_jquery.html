@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Validation Form</title>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+<script>
+$().ready(function(){
+
+$("#signupForm").validate({
+
+rules : {
+firstname : "required",
+lastname : "required",
+username : {
+required : true,
+minlength : 2 
+},
+phoneNo : {
+required : true,
+minlength : 10 
+},
+password : {
+required : true,
+minlength : 5
+},
+confirm_password : {
+required : true,
+minlength : 5,
+equalTo : "#password" 
+},
+email : {
+required : true,
+email : true
+},
+agree : "required"
+},
+	
+messages : {
+firstname : "Please enter your firstname",
+lastname : "Please enter your lastname",
+username :{
+required : "Please enter a username",
+minlength : "Your username must consist of at least 2 characters"
+},
+phoneNo :{
+required : "Please enter your Phone no",
+minlength : "Your Phone no must consist of at least 10 characters"
+},
+password : {
+required : "Please enter a password",
+minlength : "Your password must be consist of at least 5 characters"
+},
+confirm_password : {
+required : "Please enter a password",
+minlength : "Your password must be consist of at least 5 characters",
+equalTo : "Please enter the same password as above"
+},
+agree : "Please accept our policy"
+}
+});
+});
+
+</script>
+</head>
+<body>
+<form class="cmxform" id="signupForm" method="get" action="message.html" autocomplete="off">
+<fieldset>
+<legend> sign-up Form</legend>
+
+<p>
+<label for="firstname" >Firstname</label>
+<input id="firstname" name="firstname" style="text-transform:uppercase" placeholder="Enter your first Name" type="text"   ></input>
+</p>
+
+
+
+<p>
+<label for="lastname">Lastname</label>
+<input id="lastname" name="lastname" placeholder="Enter your Last Name" type="text"></input>
+</p>
+
+
+
+<p>
+<label for="username">Username</label>
+<input id="username" name="username" placeholder="Enter a Username" type="text"></input>
+</p>
+
+<p>
+    <label for="phoneNo">Phone No</label>
+    <input id="phoneNo" name="phoneNo" placeholder="Enter Phone No" type="text"></input>
+</p>
+
+
+<p>
+<label for="password">Password</label>
+<input id="password" name="password" placeholder="Enter Password" type="password"></input>
+</p>
+
+
+
+<p>
+<label for="confirm_password">Confirm password</label>
+<input id="confirm_password" name="confirm_password" placeholder="Re Enter your Password" type="password"></input>
+</p>
+
+
+
+<p>
+<label for="email">Email</label>
+<input id="email" name="email" placeholder="Enter Email" type="email"></input>
+</p>
+
+
+
+<p>
+<label for="agree">Please agree to our policy</label>
+<input id="agree" name="agree" type="checkbox"></input>
+</p>
+
+
+
+<p>
+<input class="submit" type="submit" value="submit">
+<input class="reset" type="reset" value="Reset">
+</p>
+
+</fieldset>
+</form>
+</body>
+</html>
